@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken');
 const {
     getUserName,
     signin,
-    signup
+    signup,
+    getPosts,
+    addPost
 } = require('../controllers');
 
 const router = require('express').Router();
@@ -34,6 +36,6 @@ router.get('/clearcookie', (req, res) => {
 })
 
 router.get('/decoding', getUserName)
-
-
+router.get('/posts', getPosts)
+router.post('/posts', addPost)
 module.exports = router;
