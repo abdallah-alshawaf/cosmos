@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmos</title>
-    <link rel="stylesheet" href="../css/index.css">
-    <script src="/js/index.js" defer></script>
+    <link rel="stylesheet" href="../css/loggedin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -21,11 +20,12 @@
                     <li class="nav-item home-unique"><a href="#" class="nav-links">Home</a></li>
                     <li class="nav-item"><a href="#" class="nav-links">About</a></li>
                     <li class="nav-item"><a href="#" class="nav-links">Articles</a></li>
+                    <li class="nav-item"><a href="#" class="nav-links">Create Post</a></li>
 
                 </ul>
                 <div class="user-details">
-                    <a class="user-name signup-button" href="./html/signup.html"> <i class="fa-solid fa-user-plus user-icon"></i> <span>Sign Up</span> </a>
-                    <a class="user-name" href="./html/signin.html"> <i class="fa-solid fa-arrow-right-to-bracket user-icon"></i> <span>Sign In</span> </a>
+                    <div class="user-name"> <i class="fa-solid fa-circle-user user-icon"></i> <span id="username-database">Abdallah Alshawaf</span> </div>
+                    <button class="logout" id="logoutbtn">Logout</button>
                 </div>
 
         </div>
@@ -111,6 +111,28 @@
     
         </div>
     </footer>
+
+    <div class="create-post-form">
+        <div class="form-container">
+            <form class="form">
+                <div class="form-title-container">
+                    <h1 class="form-title">Create A New Post</h1>
+                </div>
+                
+                <label for="post-title-input" class="form-post-label">Post Title</label>
+                <input type="text" class="post-input" id = "post-title-input">
+
+                <label for="post-image-input" class="form-post-label">Post Image</label>
+                <input type="text" class="post-input" id = "post-image-input">
+
+                <label for="post-content-input" class="form-post-label">Post Content</label>
+                <textarea name="post-content-input" class="post-input post-content-input" id = "post-content-input" cols="30" rows="10"></textarea>
+
+                <button type="submit" class="create-post-button">Create Post</button>
+            </form>
+        </div>
+    </div>
+    <script src="/js/loggedin.js" ></script>
 
 </body>
 </html>
