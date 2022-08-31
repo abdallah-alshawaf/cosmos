@@ -1,9 +1,13 @@
 const getUserName = require('./getUserName');
 const signin = require('./signin');
 const signup = require('./signup');
+const getPosts= require('./getPosts')
+const addPost= require('./addPost')
 
 module.exports = {
     getUserName,
     signin,
-    signup
+    signup,
+    getPosts,
+    addPost
 }
