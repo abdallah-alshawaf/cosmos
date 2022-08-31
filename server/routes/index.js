@@ -1,14 +1,39 @@
-const signin = require('../controllers/signin');
 const {join} = require('path'); 
-const signup = require('../controllers/signup');
+const jwt = require('jsonwebtoken');
+
+const {
+    getUserName,
+    signin,
+    signup
+} = require('../controllers');
 
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.sendFile(join(__dirname,'..', '..', 'public', 'index.html'));
-});
-
 router.post('/signin', signin);
-router.post('/signup', signup)
+router.post('/signup', signup);
+
+router.get('/index', (req, res, next) => {
+    if (req.cookies.token) {
+        jwt.verify(req.cookies.token, 'cosmos-private-key', (err, decoded) => {
+            if (err) {
+                res.clearCookie('token').redirect('/')
+            } else {
+                res.sendFile(join(__dirname, '..', '..', 'private', 'loggedin.html'));
+                
+            }
+        })
+    } else {
+        console.log(req.cookies)
+        res.redirect('/')
+}
+
+})
+
+router.get('/clearcookie', (req, res) => {
+    res.clearCookie('token').end();
+})
+
+router.get('/decoding', getUserName)
+
 
 module.exports = router;

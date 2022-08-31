@@ -25,7 +25,8 @@ const signin = (req, res) => {
                             console.log('Error in Token Generation')
                         }
     
-                        res.cookie('token', token).redirect('/');
+                        res.cookie('token', token);
+                        res.json('success');
                     })
                 }else {
                     res.json('Wrong Password')

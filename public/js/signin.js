@@ -79,8 +79,10 @@ signInButton.addEventListener('click', (e) => {
         })
     }) 
     .then(response => response.json())
-    .then(res => console.log(res))
-    // .then(window.location='/')
+    .then(res => {
+        if (res === 'success') {
+            window.location.href = '/index'
+    }})
     .catch(err => console.log(err))
 
 })
