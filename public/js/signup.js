@@ -36,11 +36,8 @@ const isValidEmail = email => {
 
 const ValidateInputs=()=>{
     const usernameValue = username.value.trim();
-    console.log(usernameValue);
     const emailValue = email.value.trim();
-    console.log(emailValue);
     const passwordValue = password.value.trim();
-    console.log(passwordValue);
     const passwordValue2 = password2.value.trim();
 
 
@@ -101,6 +98,12 @@ sinUpBtn.addEventListener('click', (e) => {
         username, email, password, confirmPassword
        })
 })
-// .then(window.location.href = '/html/signin.html')
+.then(res => res.json())
+.then(res => {
+    console.log(res)
+    if (res === 'success') {
+        window.location.href = '/html/signin.html'
+    }
+})
 
 })

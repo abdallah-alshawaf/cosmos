@@ -3,6 +3,8 @@ fetch('/posts')
 .then(data=> createPostCards(data))
 .catch(err=> console.log(err))
 
+const xbutton = document.querySelector('.x');
+
 
 const createPostCards=(data)=>{
 const cards = document.querySelector('.cards');
@@ -20,6 +22,10 @@ data.forEach((element, index) => {
 
     postImage.src = element.image;
     postTitle.textContent = element.title;
+
+    card.addEventListener('click', () => {
+        window.location.href = `/html/post.html?id=${element.id}`
+    })
 
     postContainer.appendChild(postTitle);
     card.appendChild(postImage);
@@ -68,3 +74,8 @@ fetch('/posts', {
     })    
 }).then(window.location.href= '/index')
 })
+
+xbutton.addEventListener('click', () => {
+    popUp.style.display = 'none';
+}
+)

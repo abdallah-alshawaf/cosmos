@@ -8,15 +8,15 @@ const signup = (req, res) => {
 const schema= joi.object({
    username: joi.string().required(),
    email: joi.string().email().required(),
-   password: joi.string().min(6).max(20).alphanum().required(),
+   password: joi.string().min(8).max(20).alphanum().required(),
    confirmPassword: joi.string().required().valid(joi.ref('password'))
 })
 
 schema.validateAsync(req.body).then(result=> {
    bcrypt.hash(password, 10, (err, hash)=> {
       if(err) console.log(err)
-      console.log(hash)
       addUserQuery(username, email, hash);
+      res.json('success')
      })
   
 })

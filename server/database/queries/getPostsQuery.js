@@ -1,7 +1,11 @@
 const connection= require('../config/connection')
 
-const getPosts=()=>{
+const getPostsQuery =()=>{
     return connection.query('select * from posts')
 }
 
-module.exports= getPosts
+const getOnePostQuery = (id) => {
+    return connection.query('select * from posts WHERE id = $1', [id])
+}
+
+module.exports= {getPostsQuery, getOnePostQuery}
