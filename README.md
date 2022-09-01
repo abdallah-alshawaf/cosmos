@@ -4,7 +4,7 @@
 # Description
 Cosmos is an APP where you can see other people's thoughts about cosmos, also you can publish your own Posts built with email-password authentication.
 
-# Live Demo [here]()
+# Live Demo [here](https://cosmos-g12.herokuapp.com/)
 
 # Installation
 - Use: ```git clone``` https://github.com/CA-G12/cosmos
