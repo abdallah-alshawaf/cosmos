@@ -3,7 +3,7 @@ const dotenv= require('dotenv').config()
 
 
 const connection=new Pool({
-    connectionString: process.env.DEV_DB_URL,
+    connectionString: process.env.DATABASE_URL,
     SSL: false
 })
 
