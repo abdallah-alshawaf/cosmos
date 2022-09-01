@@ -3,6 +3,11 @@ fetch('/posts')
 .then(data=> createPostCards(data))
 .catch(err=> console.log(err))
 
+fetch('/check-auth')
+.then(res => res.json())
+.then(res => { if (res === 'success') {
+    window.location.href = "/index"
+}})
 
 const createPostCards=(data)=>{
 const cards = document.querySelector('.cards');
@@ -20,6 +25,10 @@ data.forEach((element, index) => {
 
     postImage.src = element.image;
     postTitle.textContent = element.title;
+
+    card.addEventListener('click', () => {
+        window.location.href = `/html/post.html?id=${element.id}`
+    })
 
     postContainer.appendChild(postTitle);
     card.appendChild(postImage);

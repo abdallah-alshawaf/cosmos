@@ -1,7 +1,7 @@
 const getUserName = require('./getUserName');
 const signin = require('./signin');
 const signup = require('./signup');
-const getPosts= require('./getPosts')
+const {getPosts, getOnePost}= require('./getPosts')
 const addPost= require('./addPost')
 
 module.exports = {
@@ -9,5 +9,6 @@ module.exports = {
     signin,
     signup,
     getPosts,
-    addPost
+    addPost,
+    getOnePost
 }

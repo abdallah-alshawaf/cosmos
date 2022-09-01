@@ -6,7 +6,8 @@ const {
     signin,
     signup,
     getPosts,
-    addPost
+    addPost,
+    getOnePost
 } = require('../controllers');
 
 const router = require('express').Router();
@@ -35,7 +36,22 @@ router.get('/clearcookie', (req, res) => {
     res.clearCookie('token').end();
 })
 
+router.get('/check-auth', (req, res, next) => {
+    if (req.cookies.token) {
+        jwt.verify(req.cookies.token, 'cosmos-private-key', (err, decoded) => {
+            if (err) {
+                res.clearCookie('token').redirect('/')
+            } else {
+                res.json('success')
+            }
+        })
+    } else {
+        next()
+}})
+
 router.get('/decoding', getUserName)
 router.get('/posts', getPosts)
 router.post('/posts', addPost)
+router.get('/posts/:id', getOnePost)
+
 module.exports = router;

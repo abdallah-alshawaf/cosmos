@@ -17,14 +17,14 @@
         <div class="header-navbar">
                 <div class="header-logo">COSMOS</div>
                 <ul class="nav-list">
-                    <li class="nav-item home-unique"><a href="#" class="nav-links">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-links">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-links">Articles</a></li>
+                    <li class="nav-item home-unique"><a href="/index" class="nav-links">Home</a></li>
+                    <li class="nav-item"><a href="#footer" class="nav-links">About</a></li>
+                    <li class="nav-item"><a href="#articles" class="nav-links">Articles</a></li>
                     <li class="nav-item" id='add-post-btn'><a href="#" class="nav-links" >Create Post</a></li>
 
                 </ul>
                 <div class="user-details">
-                    <div class="user-name"> <i class="fa-solid fa-circle-user user-icon"></i> <span id="username-database">Abdallah Alshawaf</span> </div>
+                    <div class="user-name"> <i class="fa-solid fa-circle-user user-icon"></i> <span id="username-database"></span> </div>
                     <button class="logout" id="logoutbtn">Logout</button>
                 </div>
 
@@ -39,7 +39,7 @@
 
     <a href="#" class="arrow"><i class="fa-solid fa-angle-up arrow-icon"></i></a>
 
-    <div class="container">
+    <div class="container" id ="articles">
         <div class="section-title">All articles</div>
         
         <div class="cards-section">
@@ -50,7 +50,7 @@
 
     </div>
 
-    <footer class="footer">
+    <footer class="footer" id = "footer">
         <div class="line-of-words"><b>ASTRONOMY</b> &nbsp; SCIENCE NEWS &nbsp; <b>LATEST ADVANCEMENTS</b> &nbsp; RELATIVITY  &nbsp; <b>IMMUNOLOGY</b> &nbsp; CHEMISTRY &nbsp;  <b>NASA</b> &nbsp; JAMES WEBB &nbsp; <b>EXPERIMENT</b> &nbsp; TRIALS </div>
         <div class="about-container">
             <div class="about" id="about">
@@ -67,6 +67,8 @@
 
     <div class="create-post-form">
         <div class="form-container">
+            <div class="x">&#10006;</div>
+
             <form class="form">
                 <div class="form-title-container">
                     <h1 class="form-title">Create A New Post</h1>

@@ -4,7 +4,8 @@ const { join } = require('path');
 const router = require('./routes');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const verifyUserToken = require('../middlewares/verifytoken');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -13,19 +14,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use((req, res, next) => {
-    if (req.cookies.token) {
-        jwt.verify(req.cookies.token, 'cosmos-private-key', (err, decoded) => {
-            if (err) {
-                res.clearCookie('token').redirect('/')
-            } else {
-                next();
-            }
-        })
-    } else {
-        next();
-    }
-})
+app.use(verifyUserToken)
 
 app.use(express.static(join(__dirname, '..', 'public')));
 
